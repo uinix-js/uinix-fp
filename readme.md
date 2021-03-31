@@ -1,5 +1,10 @@
 # uinix-fp
 
+[![Build][build-badge]][build]
+[![Coverage][coverage-badge]][coverage]
+[![Downloads][downloads-badge]][downloads]
+[![Size][bundle-size-badge]][bundle-size]
+
 Dependency-free and build-free utilities for writing [FP][] programs.
 
 ---
@@ -14,7 +19,7 @@ npm install uinix-js/uninix-fp
 
 > `uinix-fp` is in active development.  A formal NPM package will be released in the near future.  Please install from the Github repo for now.
 
-## Use
+## Usage
 
 ```js
 import {
@@ -60,6 +65,16 @@ Utilities in `uinix-fp` are designed to support authoring [pointfree][] JS code 
 ## Related
 
 - [`uinix`][uinix]
+
+<!-- badges -->
+[build-badge]: https://github.com/uinix-js/uinix-fp/workflows/main/badge.svg
+[build]: https://github.com/uinix-js/uinix-fp/actions
+[coverage-badge]: https://img.shields.io/codecov/c/github/uinix-js/uinix-fp.svg
+[coverage]: https://codecov.io/github/uinix-js/uinix-fp
+[downloads-badge]: https://img.shields.io/npm/dm/uinix-fp.svg
+[downloads]: https://www.npmjs.com/package/uinix-fp
+[bundle-size-badge]: https://img.shields.io/bundlephobia/minzip/uinix-fp.svg
+[bundle-size]: https://bundlephobia.com/result?p=uinix-fp
 
 <!-- defs -->
 [esm]: https://nodejs.org/api/esm.html
