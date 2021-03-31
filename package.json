@@ -28,8 +28,8 @@
   },
   "scripts": {
     "lint": "xo --fix",
-    "test": "node test/index.js",
-    "test-coverage": "c8 --check-coverage --lines 100 --functions 100 --branches 100 --reporter lcov node --experimental-modules test/index.js"
+    "test-coverage": "c8 --check-coverage --lines 100 --functions 100 --branches 100 --reporter lcov node test/index.js",
+    "test": "npm run test-coverage"
   },
   "engines": {
     "node": ">=12.17.0"
