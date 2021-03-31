@@ -1,0 +1,52 @@
+{
+  "name": "uinix-fp",
+  "version": "0.1.0",
+  "description": "Dependency-free and build-free utilities for writing FP programs",
+  "license": "MIT",
+  "keywords": [
+    "uinix",
+    "fp",
+    "utility",
+    "ui"
+  ],
+  "repository": "uinix-js/uinix-fp",
+  "bugs": "https://github.com/uinix-js/uinix-fp/issues",
+  "author": "Chris Zhou <chrisrzhou@pm.me> (https://chrisrzhou.io)",
+  "type": "module",
+  "files": [
+    "lib/",
+    "index.js",
+    "index.d.js"
+  ],
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "tape": "^5.2.2",
+    "xo": "^0.38.2"
+  },
+  "scripts": {
+    "lint": "xo --fix",
+    "test": "node test/index.js"
+  },
+  "engines": {
+    "node": ">=12.17.0"
+  },
+  "prettier": {
+    "bracketSpacing": true,
+    "jsxBracketSameLine": true,
+    "trailingComma": "all",
+    "useTabs": false
+  },
+  "xo": {
+    "prettier": true,
+    "esnext": false,
+    "rules": {
+      "capitalized-comments": "off",
+      "padding-line-between-statements": "off",
+      "unicorn/no-array-callback-reference": "off",
+      "unicorn/no-array-for-each": "off",
+      "unicorn/no-array-reduce": "off",
+      "unicorn/prefer-spread": "off"
+    }
+  }
+}
