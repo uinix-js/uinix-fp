@@ -19,14 +19,17 @@
     "index.d.js"
   ],
   "main": "index.js",
+  "types": "index.d.ts",
   "dependencies": {},
   "devDependencies": {
+    "c8": "^7.7.0",
     "tape": "^5.2.2",
     "xo": "^0.38.2"
   },
   "scripts": {
     "lint": "xo --fix",
-    "test": "node test/index.js"
+    "test": "node test/index.js",
+    "test-coverage": "c8 --check-coverage --lines 100 --functions 100 --branches 100 --reporter lcov node --experimental-modules test/index.js"
   },
   "engines": {
     "node": ">=12.17.0"
