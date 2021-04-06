@@ -18,5 +18,6 @@ test('curry', (t) => {
   t.equal(curry4Add(1, 2)(3)(4), 10);
   t.equal(curry4Add(1, 2, 3)(4), 10);
   t.equal(curry4Add(1, 2, 3, 4), 10);
+
   t.end();
 });

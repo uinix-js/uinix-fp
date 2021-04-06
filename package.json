@@ -1,7 +1,7 @@
 {
   "name": "uinix-fp",
   "version": "0.1.0",
-  "description": "Dependency-free and build-free utilities for writing FP programs",
+  "description": "FP utilities for authoring functional JS programs",
   "license": "MIT",
   "keywords": [
     "uinix",
@@ -20,7 +20,9 @@
   ],
   "main": "index.js",
   "types": "index.d.ts",
-  "dependencies": {},
+  "dependencies": {
+    "lodash.merge": "^4.6.2"
+  },
   "devDependencies": {
     "c8": "^7.7.0",
     "tape": "^5.2.2",

@@ -5,7 +5,7 @@
 [![Downloads][downloads-badge]][downloads]
 [![Size][bundle-size-badge]][bundle-size]
 
-Dependency-free and build-free utilities for writing [FP][] programs.
+[FP][] utilities for authoring functional JS programs.
 
 ---
 
@@ -14,7 +14,7 @@ Dependency-free and build-free utilities for writing [FP][] programs.
 `uinix-fp` is an [ESM][] module requiring Node 12+.
 
 ```sh
-npm install uinix-js/uninix-fp
+npm install github:uinix-js/uninix-fp
 ```
 
 > `uinix-fp` is in active development.  A formal NPM package will be released in the near future.  Please install from the Github repo for now.
