@@ -16,12 +16,12 @@
   "files": [
     "lib/",
     "index.js",
-    "index.d.js"
+    "index.d.ts"
   ],
   "main": "index.js",
   "types": "index.d.ts",
   "dependencies": {
-    "lodash.merge": "^4.6.2"
+    "deepmerge": "^4.2.2"
   },
   "devDependencies": {
     "c8": "^7.7.0",
