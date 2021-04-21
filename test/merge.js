@@ -57,9 +57,7 @@ test('merge', (t) => {
     },
     'should perform deepmerge with array overwrites',
   );
-
   t.deepEqual(x1, x1Clone, 'should not mutate x1');
-
   t.deepEqual(x2, x2Clone, 'should not mutate x2');
 
   t.end();

@@ -3,6 +3,9 @@ import test from 'tape';
 import { prop } from '../index.js';
 
 test('prop', (t) => {
+  t.equal(prop('name')({ name: 'John' }), 'John');
+  t.equal(prop('name')({ age: 42 }), undefined);
+
   const x = {
     a: {
       b: {
@@ -10,14 +13,7 @@ test('prop', (t) => {
       },
     },
   };
-
-  t.equal(prop('name')({ name: 'John' }), 'John', 'should return prop value');
-  t.equal(
-    prop('name')({ age: 42 }),
-    undefined,
-    'should return undefined if prop does not exist in object',
-  );
-  t.equal(prop('a')(x), x.a, 'should exactly equal prop value');
+  t.equal(prop('a')(x), x.a, 'should shallow equal prop value');
 
   t.end();
 });

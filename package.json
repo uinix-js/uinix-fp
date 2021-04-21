@@ -47,6 +47,7 @@
     "esnext": false,
     "rules": {
       "capitalized-comments": "off",
+      "no-prototype-builtins": "off",
       "padding-line-between-statements": "off",
       "unicorn/no-array-callback-reference": "off",
       "unicorn/no-array-for-each": "off",
