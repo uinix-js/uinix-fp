@@ -1,24 +1,42 @@
 import test from 'tape';
 
-import { isPlainObject } from '../index.js';
+import {isPlainObject} from '../index.js';
 
+// Based on https://github.com/sindresorhus/is-plain-obj/blob/main/test.js
 test('isPlainObject', (t) => {
-  function Foo() {
-    this.abc = {};
+  function Foo(x) {
+    this.x = x;
   }
 
-  t.ok(isPlainObject(Object.create({})));
-  t.ok(isPlainObject(Object.create(Object.prototype)));
-  t.ok(isPlainObject({ foo: 'bar' }));
+  function ObjectConstructor() {}
+
   t.ok(isPlainObject({}));
+  t.ok(isPlainObject({foo: true}));
+  t.ok(isPlainObject({constructor: Foo}));
+  t.ok(isPlainObject({valueOf: 0}));
   t.ok(isPlainObject(Object.create(null)));
-  t.notOk(isPlainObject(/foo/));
-  t.notOk(isPlainObject(function () {}));
-  t.notOk(isPlainObject(1));
+  t.ok(isPlainObject(new Object())); // eslint-disable-line no-new-object
   t.notOk(isPlainObject(['foo', 'bar']));
-  t.notOk(isPlainObject([]));
-  t.notOk(isPlainObject(new Foo()));
+  t.notOk(isPlainObject(new Foo(1)));
+  t.notOk(isPlainObject(Math));
+  t.notOk(isPlainObject(Error));
+  t.notOk(isPlainObject(() => {}));
+  t.notOk(isPlainObject(/./));
   t.notOk(isPlainObject(null));
+  t.notOk(isPlainObject(undefined));
+  t.notOk(isPlainObject(Number.NaN));
+  t.notOk(isPlainObject(''));
+  t.notOk(isPlainObject(0));
+  t.notOk(isPlainObject(false));
+  t.notOk(isPlainObject(new ObjectConstructor()));
+
+  (function () {
+    t.notOk(isPlainObject(arguments)); // eslint-disable-line prefer-rest-params
+  })();
+
+  const foo = new Foo();
+  foo.constructor = Object;
+  t.notOk(isPlainObject(foo));
 
   t.end();
 });

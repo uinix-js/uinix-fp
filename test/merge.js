@@ -1,6 +1,6 @@
 import test from 'tape';
 
-import { merge } from '../index.js';
+import {merge} from '../index.js';
 
 test('merge', (t) => {
   const x1 = {

@@ -1,6 +1,6 @@
 import test from 'tape';
 
-import { curry } from '../index.js';
+import {curry} from '../index.js';
 
 test('curry', (t) => {
   const curry2Add = curry((a, b) => a + b);

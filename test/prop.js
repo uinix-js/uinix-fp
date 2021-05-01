@@ -1,11 +1,11 @@
 import test from 'tape';
 
-import { prop } from '../index.js';
+import {prop} from '../index.js';
 
 test('prop', (t) => {
-  t.equal(prop('name')({ name: 'John' }), 'John');
+  t.equal(prop('name')({name: 'John'}), 'John');
   t.equal(
-    prop('name')({ age: 42 }),
+    prop('name')({age: 42}),
     undefined,
     'returns undefined if prop not found',
   );

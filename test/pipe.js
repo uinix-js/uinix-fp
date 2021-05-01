@@ -1,6 +1,6 @@
 import test from 'tape';
 
-import { pipe } from '../index.js';
+import {pipe} from '../index.js';
 
 test('pipe', (t) => {
   const step1 = (x) => x + 1;
@@ -9,7 +9,7 @@ test('pipe', (t) => {
 
   t.equal(
     pipe([
-      // pipe steps
+      // Pipe steps
       step1,
       step2(2),
       step3,
