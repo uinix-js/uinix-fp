@@ -9,22 +9,15 @@ test('prop', (t) => {
     undefined,
     'returns undefined if prop not found',
   );
-
-  const x = {
-    a: {
-      b: {
-        c: 42,
-      },
-    },
-  };
-  t.equal(prop('a')(x), x.a, 'should shallow equal prop value');
-  t.equal(prop('a.b.c')(x), 42, 'supports path accessor');
-  t.equal(prop('a.b')(x), x.a.b, 'supports path accessor with shallow equal');
   t.equal(
-    prop('a.b.c.d.e.f')(x),
+    prop('xyz')(null),
     undefined,
-    'returns undefined if nested prop not found',
+    'should return undefined when accessing null',
   );
-
+  t.equal(
+    prop('xyz')(undefined),
+    undefined,
+    'should return undefined when accessing undefined',
+  );
   t.end();
 });

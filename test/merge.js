@@ -44,21 +44,11 @@ test('merge', (t) => {
 
   t.deepEqual(
     merge(x1)(x2),
-    {
-      a: {
-        b: {
-          c: 24,
-        },
-        d: [3, 2, 1],
-      },
-      f: {
-        g: 'h',
-      },
-    },
+    x2Clone,
     'should perform deepmerge with array overwrites',
   );
-  t.deepEqual(x1, x1Clone, 'should not mutate x1');
-  t.deepEqual(x2, x2Clone, 'should not mutate x2');
+  t.deepEqual(x1, x1Clone, 'should not update or update x1');
+  t.deepEqual(x2, x2Clone, 'should not update or update x2');
 
   t.end();
 });

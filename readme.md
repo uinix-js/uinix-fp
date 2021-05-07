@@ -5,7 +5,7 @@
 [![Downloads][downloads-badge]][downloads]
 [![Size][bundle-size-badge]][bundle-size]
 
-[FP][] utilities for authoring functional JS programs.
+[FP][] utilities for authoring common JS utilities in functional form.
 
 ---
 
@@ -14,56 +14,80 @@
 `uinix-fp` is an [ESM][] module requiring Node 12+.
 
 ```sh
-npm install github:uinix-js/uninix-fp
+npm install uinix-fp
 ```
-
-> `uinix-fp` is in active development.  A formal NPM package will be released in the near future.  Please install from the Github repo for now.
 
 ## Usage
 
 ```js
 import {
-  complement,
-  filter,
-  isEmpty,
-  map,
-  pipe,
+  i,
+  isPlainObject,
+  k,
+  merge,
+  noop,
   prop,
-  trace,
+  props,
 } from 'uinix-fp';
 
-const data = [
-  { name: 'a', ... },
-  { name: 'b', ... },
-  { name: 'c', ... },
-  ...
-];
+const x = 42;
+const obj = {a:{b:{c:x}}};
 
-// easy composition with curried methods
-const isNotEmpty = complement(isEmpty);
+console.log(i(x)); // 42
+console.log(k(x)(9000)); // 42
+console.log(isPlainObject(x)); // false
+console.log(noop(x)); // undefined
+console.log(prop('a')(obj), obj.a); // undefined
+console.log(props('a.b.c')(obj), x); // undefined
+```
 
-const csv = pipe([ // pipe functions
-  filter(isNotEmpty), // filter entries that are not empty
-  trace('after filter'), // easily debug with a trace
-  map(prop('name')), // map the property name
-  joinWith(', '), // join an array of strings on ', '
-])(data)
+Most programs are curried for composable use:
 
-console.log(csv); // 'a, b, c, ...'
+```js
+import {pipe, prop} from 'uinix-fp';
+
+const x = 42;
+const obj = {a:{b:{c:x}}};
+
+const propByA = prop('a');
+const propByPath = prop('a.b.c');
+
+console.log(propByA(obj)); // obj.a
+console.log(propByPath(obj)); // x
+
+const transform = pipe([
+  x => x - 2,
+  x => x / 10,
+]);
+
+console.log(transform(x)); // 4
 ```
 
 ## API
 
-> Detailed API docs will be provided in the future. API is inspired largely by [`sanctuary`][sanctuary].
+Detailed API docs will be generated and provided in the near future.  For now, please refer to the [source code](./index.js) for API documentation.  [Typescript][typescript] typings are provided for consumers.
 
-Refer to the [type definitions](./index.d.ts).
+## Design
 
-## Note
+The main design choices of `uinix-fp` are outlined below:
+- Meet the needs of [`uinix`][uinix] ecosystem.
+- Ease over rigor.
+- Stay close to JS patterns and behaviors.
+- Avoid introducing new concepts.
+- Simple, modular, and composable.
+- Support [pointfree][] notation.
 
-Utilities in `uinix-fp` are designed to support authoring [pointfree][] JS code in functional form. It keeps close to expected JS behaviors (both good and bad parts), to avoid introducing and learning new APIs and behaviors.
+`uinix-fp` is not designed to be a comprehensive utiltiy library (e.g. [`lodash`][lodash]).  It will lack a wide selection of utilities, and will only expose new APIs as needed by the [`uinix`][uinix] ecosystem.
+
+`uinix-fp` is not designed to be a formal functional programming library (e.g. [`sanctuary`][sanctuary]), and will lack rigor of FP concepts and monads (e.g. `Maybe`, `Nothing`, `Fluture` etc).  This is intentional, to avoid overhead when casting JS programs in functional form.  The library tries its best to strike a balance between ease and rigor.
+
+## References
+- [`combinator-js`][combinator-js]
+- [`sanctuary`][sanctuary]
 
 ## Related
 
+- [`sanctuary`][sanctuary]
 - [`uinix`][uinix]
 
 <!-- badges -->
@@ -77,8 +101,11 @@ Utilities in `uinix-fp` are designed to support authoring [pointfree][] JS code 
 [bundle-size]: https://bundlephobia.com/result?p=uinix-fp
 
 <!-- defs -->
+[combinator-js]: https://github.com/benji6/combinators-js
 [esm]: https://nodejs.org/api/esm.html
 [fp]: https://en.wikipedia.org/wiki/Functional_programming
+[lodash]: https://github.com/lodash/lodash
 [pointfree]: https://en.wikipedia.org/wiki/Tacit_programming
 [sanctuary]: https://github.com/sanctuary-js/sanctuary
+[typescript]: https://github.com/microsoft/TypeScript
 [uinix]: https://github.com/uinix-js
