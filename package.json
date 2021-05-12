@@ -19,6 +19,7 @@
     "index.d.ts"
   ],
   "main": "index.js",
+  "types": "index.d.ts",
   "dependencies": {
     "deepmerge": "^4.2.2"
   },
@@ -29,7 +30,7 @@
     "tape": "^5.2.2",
     "type-coverage": "^2.17.5",
     "typescript": "^4.2.4",
-    "xo": "^0.39.1"
+    "xo": "^0.40.1"
   },
   "scripts": {
     "clean": "rimraf {lib/**,}*.d.ts",
