@@ -1,8 +1,8 @@
-export * from './i.js';
-export * from './is-plain-object.js';
-export * from './k.js';
-export * from './merge.js';
-export * from './noop.js';
-export * from './pipe.js';
-export * from './prop.js';
-export * from './props.js';
+import './i.js';
+import './is-plain-object.js';
+import './k.js';
+import './merge.js';
+import './noop.js';
+import './pipe.js';
+import './prop.js';
+import './props.js';

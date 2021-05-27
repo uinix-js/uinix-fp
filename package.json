@@ -26,10 +26,9 @@
   "devDependencies": {
     "@types/tape": "^4.13.0",
     "c8": "^7.7.2",
-    "rimraf": "^3.0.2",
     "tape": "^5.2.2",
     "type-coverage": "^2.17.5",
-    "typescript": "^4.2.4",
+    "typescript": "^4.3.2",
     "uinix-scripts": "^0.1.2",
     "xo": "^0.40.1"
   },
@@ -65,6 +64,16 @@
       "unicorn/no-array-callback-reference": "off",
       "unicorn/no-array-for-each": "off",
       "unicorn/no-array-reduce": "off"
-    }
+    },
+    "overrides": [
+      {
+        "files": [
+          "test/**/*.js"
+        ],
+        "rules": {
+          "import/no-unassigned-import": "off"
+        }
+      }
+    ]
   }
 }
