@@ -1,3 +1,4 @@
+import './filter.js';
 import './i.js';
 import './is-plain-object.js';
 import './k.js';

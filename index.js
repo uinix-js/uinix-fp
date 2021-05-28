@@ -1,4 +1,5 @@
 export {i} from './lib/i.js';
+export {filter} from './lib/filter.js';
 export {isPlainObject} from './lib/is-plain-object.js';
 export {k} from './lib/k.js';
 export {merge} from './lib/merge.js';
