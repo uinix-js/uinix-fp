@@ -33,13 +33,12 @@
     "xo": "^0.40.1"
   },
   "scripts": {
+    "build": "npm run clean && tsc && type-coverage",
     "clean": "uinix-scripts clean",
-    "coverage": "npm run type-coverage && npm run test-coverage",
     "lint": "xo --fix",
-    "prepack": "npm run clean && npm run coverage && npm run lint",
+    "prepack": "npm run build && npm run lint",
     "test-coverage": "c8 --check-coverage --lines 100 --functions 100 --branches 100 --reporter lcov node test/index.js",
-    "type-coverage": "tsc && type-coverage",
-    "test": "npm run prepack"
+    "test": "npm run build && npm run lint && npm run test-coverage"
   },
   "engines": {
     "node": ">=12"
