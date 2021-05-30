@@ -41,7 +41,7 @@ console.log(prop('a')(obj), obj.a); // undefined
 console.log(props('a.b.c')(obj), x); // undefined
 ```
 
-Most programs are curried for composable use:
+Most programs support currying for easy composition:
 
 ```js
 import {pipe, prop} from 'uinix-fp';
@@ -65,12 +65,12 @@ console.log(transform(x)); // 4
 
 ## API
 
-Detailed API docs will be generated and provided in the near future.  For now, please refer to the [source code](./index.js) for API documentation.  [Typescript][typescript] typings are provided for consumers.
+Detailed API docs will be generated and provided in the near future.  For now, please refer to the [source code](./index.js) for API documentation.  [Typescript][typescript] typings are generated when installing the package.
 
 ## Design
 
 The main design choices of `uinix-fp` are outlined below:
-- Meet the needs of [`uinix`][uinix] ecosystem.
+- Meet the needs of the [`uinix`][uinix] ecosystem.
 - Ease over rigor.
 - Stay close to JS patterns and behaviors.
 - Avoid introducing new concepts.
@@ -79,14 +79,12 @@ The main design choices of `uinix-fp` are outlined below:
 
 `uinix-fp` is not designed to be a comprehensive utiltiy library (e.g. [`lodash`][lodash]).  It will lack a wide selection of utilities, and will only expose new APIs as needed by the [`uinix`][uinix] ecosystem.
 
-`uinix-fp` is not designed to be a formal functional programming library (e.g. [`sanctuary`][sanctuary]), and will lack rigor of FP concepts and monads (e.g. `Maybe`, `Nothing`, `Fluture` etc).  This is intentional, to avoid overhead when casting JS programs in functional form.  The library tries its best to strike a balance between ease and rigor.
+`uinix-fp` is not designed to be a formal functional programming library (e.g. [`sanctuary`][sanctuary]), and will lack rigor of in some FP concepts and monads.  This is intentional by design, to avoid learning new concepts and behaviors when casting JS programs in functional form.  The library tries its best to strike a balance between ease and rigor.
 
-## References
-- [`combinator-js`][combinator-js]
-- [`sanctuary`][sanctuary]
 
 ## Related
 
+- [`combinator-js`][combinator-js]
 - [`sanctuary`][sanctuary]
 - [`uinix`][uinix]
 
