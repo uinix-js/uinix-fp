@@ -14,7 +14,11 @@ test('props', (t) => {
         3: 42,
       },
     },
+    'a.b.c.d': 'e',
+    '1.2.a.b': 5,
   };
+  t.equal(props()(x), x, 'should return x if path is undefined');
+  t.equal(props('')(x), x, 'should return x if path is an empty string');
   t.equal(props('a')(x), x.a, 'should strictly equal props value');
   t.equal(props('a.b.c')(x), 42, 'should support path accessor');
   t.equal(
@@ -36,6 +40,16 @@ test('props', (t) => {
     props('a.b.c.d.e.f')(x),
     undefined,
     'should return undefined if nested props not found',
+  );
+  t.equal(
+    props('a.b.c.d')(x),
+    'e',
+    'should support direct lookup for string path keys',
+  );
+  t.equal(
+    props('1.2.a.b')(x),
+    5,
+    'should support direct lookup for mixed path keys',
   );
 
   t.end();
