@@ -52,5 +52,18 @@ test('props', (t) => {
     'should support direct lookup for mixed path keys',
   );
 
+  t.equal(
+    props('a.b')(null),
+    null,
+    'should return original value if not an object (e.g. null)',
+  );
+
+  const array = [42, 24];
+  t.equal(
+    props('a.b')(array),
+    array,
+    'should return original value if not an object (e.g. array)',
+  );
+
   t.end();
 });
