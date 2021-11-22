@@ -5,7 +5,7 @@
 [![Downloads][downloads-badge]][downloads]
 [![Size][bundle-size-badge]][bundle-size]
 
-[`uinix-fp`][uinix-fp] constant utility.
+[`uinix-fp`][uinix-fp] constant/always utility.
 
 ---
 
@@ -19,7 +19,7 @@ npm install uinix-fp-k
 
 ## Use
 
-`k` is a curried function simply returning the first provided value.
+`k` is a curried function always returning the first provided value.
 
 ```js
 import {k} from 'uinix-fp-k';
@@ -39,11 +39,12 @@ This package exports the following identifiers: `k`.  There is no default export
 
 ### `k(x)(y)`
 
-###### Parameters
-- `x` (`X`) — Any value
+###### Parameters (Curried)
+- `x` (`X`) — Provided value
+- `y` (`Y`) — Second provided value (unused)
 
 ###### Returns
-- `(y: Y) => X` — Callback returning `X`.
+- `X` — Always returns `x`
 
 ## License
 
