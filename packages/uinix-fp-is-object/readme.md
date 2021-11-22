@@ -25,18 +25,17 @@ npm install uinix-fp-is-object
 
 ```js
 import {isObject} from 'uinix-fp-is-object';
-import isPlainObject from 'is-plain-obj';
 
-isPlainObject({foo: 'bar'}); // true
+isObject({foo: 'bar'}); // true
 
-isPlainObject(new Object()); // true
+isObject(new Object()); // true
 
-isPlainObject(Object.create(null)); // true
+isObject(Object.create(null)); // true
 
-isPlainObject([1, 2, 3]); // false
+isObject([1, 2, 3]); // false
 
 class MyClass {}
-isPlainObject(new MyClass()); // false
+isObject(new MyClass()); // false
 ```
 
 ## API
