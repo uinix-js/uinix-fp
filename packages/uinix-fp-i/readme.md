@@ -19,6 +19,8 @@ npm install uinix-fp-i
 
 ## Use
 
+`i` is a function simply returning the provided value.
+
 ```js
 import {i} from 'uinix-fp-i';
 
@@ -31,9 +33,7 @@ i(42); // 42
 
 This package exports the following identifiers: `i`.  There is no default export.
 
-`i(x)`
-
-The identity function returning the provided value.
+### `i(x)`
 
 ###### Parameters
 - `x` (`X`) — Any value
