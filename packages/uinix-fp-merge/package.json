@@ -1,0 +1,33 @@
+{
+  "name": "uinix-fp-merge",
+  "version": "1.0.0",
+  "description": "uinix fp merge utility",
+  "license": "MIT",
+  "keywords": [
+    "uinix",
+    "fp",
+    "utility",
+    "merge"
+  ],
+  "repository": "https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-merge",
+  "bugs": "https://github.com/uinix-js/uinix-fp/issues",
+  "author": "Chris Zhou <chrisrzhou@pm.me> (https://chrisrzhou.io)",
+  "funding": [
+    {
+      "type": "GitHub Sponsors",
+      "url": "https://github.com/sponsors/uinix-js"
+    }
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "exports": "./index.js",
+  "dependencies": {
+    "deepmerge": "^4.2.2"
+  }
+}
