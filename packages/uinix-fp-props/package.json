@@ -1,0 +1,33 @@
+{
+  "name": "uinix-fp-props",
+  "version": "1.0.0",
+  "description": "uinix fp object props utility",
+  "license": "MIT",
+  "keywords": [
+    "uinix",
+    "fp",
+    "utility",
+    "props"
+  ],
+  "repository": "https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-props",
+  "bugs": "https://github.com/uinix-js/uinix-fp/issues",
+  "author": "Chris Zhou <chrisrzhou@pm.me> (https://chrisrzhou.io)",
+  "funding": [
+    {
+      "type": "GitHub Sponsors",
+      "url": "https://github.com/sponsors/uinix-js"
+    }
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "exports": "./index.js",
+  "dependencies": {
+    "uinix-fp-is-plain-object": "1.0.0"
+  }
+}
