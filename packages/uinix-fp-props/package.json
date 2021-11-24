@@ -1,6 +1,6 @@
 {
   "name": "uinix-fp-props",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "uinix fp object props utility",
   "license": "MIT",
   "keywords": [
@@ -28,6 +28,6 @@
   ],
   "exports": "./index.js",
   "dependencies": {
-    "uinix-fp-is-plain-object": "1.0.0"
+    "uinix-fp-is-plain-object": "^1.0.0"
   }
 }
