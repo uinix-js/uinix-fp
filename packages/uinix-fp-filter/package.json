@@ -1,0 +1,32 @@
+{
+  "name": "uinix-fp-filter",
+  "version": "1.0.0",
+  "description": "uinix fp array filter utility",
+  "license": "MIT",
+  "keywords": [
+    "uinix",
+    "fp",
+    "utility",
+    "array",
+    "filter"
+  ],
+  "repository": "https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-filter",
+  "bugs": "https://github.com/uinix-js/uinix-fp/issues",
+  "author": "Chris Zhou <chrisrzhou@pm.me> (https://chrisrzhou.io)",
+  "funding": [
+    {
+      "type": "GitHub Sponsors",
+      "url": "https://github.com/sponsors/uinix-js"
+    }
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "exports": "./index.js",
+  "dependencies": {}
+}
