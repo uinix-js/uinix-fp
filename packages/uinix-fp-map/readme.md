@@ -38,7 +38,7 @@ This package exports the following identifiers: `map`.  There is no default expo
 
 ###### Parameters (Curried)
 - `f` (`(x: X) => Y`): The mapping function
-- `x` (`X`): Any value
+- `xs` (`X[]`): Any value
 
 ###### Returns
 - `Y[]` — Array of values returned by the mapping function
