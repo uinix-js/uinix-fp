@@ -1,7 +1,7 @@
 {
   "name": "uinix-fp-pipe",
   "version": "1.0.0",
-  "description": "uinix fp identity utility",
+  "description": "uinix fp pipe utility",
   "license": "MIT",
   "keywords": [
     "uinix",
