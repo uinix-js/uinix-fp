@@ -1,0 +1,45 @@
+{
+  "name": "uinix-fp",
+  "version": "1.0.0",
+  "description": "FP utilities for authoring common JS utilities in functional form",
+  "license": "MIT",
+  "keywords": [
+    "uinix",
+    "fp",
+    "utility",
+    "ui"
+  ],
+  "repository": "https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp",
+  "bugs": "https://github.com/uinix-js/uinix-fp/issues",
+  "author": "Chris Zhou <chrisrzhou@pm.me> (https://chrisrzhou.io)",
+  "funding": [
+    {
+      "type": "GitHub Sponsors",
+      "url": "https://github.com/sponsors/uinix-js"
+    }
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "files": [
+    "index.js",
+    "index.d.ts"
+  ],
+  "exports": "./index.js",
+  "dependencies": {
+    "uinix-fp-filter": "^1.0.0",
+    "uinix-fp-filter-entries": "^1.0.0",
+    "uinix-fp-i": "^1.0.0",
+    "uinix-fp-is-plain-object": "^1.0.0",
+    "uinix-fp-is-truthy": "^1.0.0",
+    "uinix-fp-k": "^1.0.0",
+    "uinix-fp-map": "^1.0.0",
+    "uinix-fp-map-entries": "^1.0.0",
+    "uinix-fp-merge": "^1.0.0",
+    "uinix-fp-noop": "^1.0.0",
+    "uinix-fp-pipe": "^1.0.0",
+    "uinix-fp-prop": "^1.0.0",
+    "uinix-fp-props": "^1.0.1"
+  }
+}
