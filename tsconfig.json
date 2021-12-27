@@ -9,8 +9,9 @@
     "moduleResolution": "node",
     "module": "es2020",
     "skipLibCheck": true,
+    "strict": true,
     "target": "es2020"
   },
-  "exclude": ["coverage", "node_modules", "test"],
+  "exclude": ["coverage", "node_modules"],
   "include": ["**/*.js"],
 }
