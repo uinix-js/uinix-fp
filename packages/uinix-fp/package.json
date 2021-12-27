@@ -1,13 +1,12 @@
 {
   "name": "uinix-fp",
   "version": "1.0.0",
-  "description": "FP utilities for authoring common JS utilities in functional form",
+  "description": "FP utilities for authoring common JS programs in functional form",
   "license": "MIT",
   "keywords": [
     "uinix",
     "fp",
-    "utility",
-    "ui"
+    "utility"
   ],
   "repository": "https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp",
   "bugs": "https://github.com/uinix-js/uinix-fp/issues",

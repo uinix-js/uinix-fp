@@ -5,105 +5,161 @@
 [![Downloads][downloads-badge]][downloads]
 [![Size][bundle-size-badge]][bundle-size]
 
-[FP][] utilities for authoring common JS utilities in functional form.
+[FP] utilities for authoring common JS programs in functional form.
 
 ---
 
+## Contents
+- [Install](#install)
+- [Use](#use)
+- [API](#api)
+- [Project](#project)
+  - [Goals](#goals)
+  - [Version](#version)
+  - [Contribute](#contribute)
+  - [Related](#related)
+  - [License](#license)
+
 ## Install
 
-`uinix-fp` is an [ESM][] module requiring Node 12+.
+This package is [ESM-only] and requires Node 12+.
 
 ```sh
 npm install uinix-fp
 ```
 
-## Usage
+You may also install specific [packages] individually.
+
+```sh
+npm install uinix-fp-i
+npm install uinix-fp-map
+npm install uinix-fp-noop
+npm install uinix-fp-pipe
+...
+```
+
+> **Note:** `uinix-fp` is tree-shakeable and we recommend simply installing the main package if your build supports [tree shaking].
+
+## Use
+
+The following example shows usage of some `uinix-fp` programs supporting [pointfree] and [currying] ways to express common JS data transformations in a pipeline.
 
 ```js
 import {
-  i,
-  isPlainObject,
-  k,
-  merge,
-  noop,
-  prop,
-  props,
+  filter,
+  isTruthy,
+  map,
+  pipe,
+  props
 } from 'uinix-fp';
 
-const x = 42;
-const obj = {a:{b:{c:x}}};
+const greet = x => 'Hi ' + x;
 
-console.log(i(x)); // 42
-console.log(k(x)(9000)); // 42
-console.log(isPlainObject(x)); // false
-console.log(noop(x)); // undefined
-console.log(prop('a')(obj), obj.a); // undefined
-console.log(props('a.b.c')(obj), x); // undefined
+const exclaim = x => x + '!';
+
+const filterTruthy = filter(isTruthy); // curried
+
+const data = [
+  null,
+  {user: {firstName: 'Jesse'}},
+  null,
+  {user: {firstName: 'Walter'}},
+  ...
+];
+
+const pipeline = pipe([
+  filterTruthy, // [{user: {firstName: 'Jesse'}}, {user: {firstName: 'Walter'}}, ...]
+  map(props('user.firstName')), // ['Jesse', 'Walter', ...]
+  map(greet), // ['Hi Jesse', 'Hi Walter', ...]
+  map(exclaim), // ['Hi Jesse!', 'Hi Walter!', ...]
+])(data);
 ```
 
-Most programs support currying for easy composition:
+`uinix-fp` is unopinionated and you you can express your code appropriately for your functional style and needs. The following pipeline is equivalent to the previous pipeline.
 
 ```js
-import {pipe, prop} from 'uinix-fp';
-
-const x = 42;
-const obj = {a:{b:{c:x}}};
-
-const propByA = prop('a');
-const propByPath = prop('a.b.c');
-
-console.log(propByA(obj)); // obj.a
-console.log(propByPath(obj)); // x
-
-const transform = pipe([
-  x => x - 2,
-  x => x / 10,
+const shoutFirstName = pipe([
+  props('user.firstName'),
+  greet,
+  exclaim,
 ]);
 
-console.log(transform(x)); // 4
+const pipeline = pipe([
+  filterTruthy,
+  map(shoutFirstName),
+])(data)
 ```
 
 ## API
 
-Detailed API docs will be generated and provided in the near future.  For now, please refer to the [source code](./index.js) for API documentation.  [Typescript][typescript] typings are generated when installing the package.
+This package has no default export and exports the following identifiers:
+- [`filter`](https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-filter)
+- [`filterEntries`](https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-filter-entries)
+- [`i`](https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-i)
+- [`isPlainObject`](https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-is-plain-object)
+- [`isTruthy`](https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-is-truthy)
+- [`k`](https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-k)
+- [`map`](https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-map)
+- [`mapEntries`](https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-map-entries)
+- [`merge`](https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-merge)
+- [`noop`](https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-noop)
+- [`pipe`](https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-pipe)
+- [`prop`](https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-prop)
+- [`props`](https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-props)
 
-## Design
+APIs are explorable via [JSDoc]-based [Typescript] typings accompanying the source code.
 
-The main design choices of `uinix-fp` are outlined below:
-- Meet the needs of the [`uinix`][uinix] ecosystem.
-- Ease over rigor.
-- Stay close to JS patterns and behaviors.
-- Avoid introducing new concepts.
-- Simple, modular, and composable.
-- Support [pointfree][] notation.
+## Project
 
-`uinix-fp` is not designed to be a comprehensive utiltiy library (e.g. [`lodash`][lodash]).  It will lack a wide selection of utilities, and will only expose new APIs as needed by the [`uinix`][uinix] ecosystem.
+### Goals
+`uinix-fp` is fundamentally just a *simple JS library of utilities*.  It aims to be JS-first and avoid opinionated domain-specific APIs.
 
-`uinix-fp` is not designed to be a formal functional programming library (e.g. [`sanctuary`][sanctuary]), and will lack rigor of in some FP concepts and monads.  This is intentional by design, to avoid learning new concepts and behaviors when casting JS programs in functional form.  The library tries its best to strike a balance between ease and rigor.
+`uinix-fp` programs follow the [Unix philosophy], with each program maintaining simple and clear responsibilities, while remaining interoperable with other program and most importantly with core JS.
 
+Strict formalization of FP principles and typings should not impede on the primary goal of providing a minimal set of utilities to help express common JS programs in functional form.  If you are looking for a formal and rigorous set of FP utilities, please explore other libraries such as [`sanctuary`][sanctuary] and [`fp-ts`][fp-ts].
 
-## Related
+### Version
+`uinix-fp` adheres to [semver] starting at 1.0.0.
 
-- [`combinator-js`][combinator-js]
+### Contribute
+`uinix-fp` is a collection of smaller FP utilities managed under a monorepo of [packages].
+
+Install dependencies with `npm i` and run tests with `npm test`.  You can also run other NPM scripts (e.g. `lint`) from the root of the monorepo.
+
+### Related
+- [`uinix-js`][uinix-js]
 - [`sanctuary`][sanctuary]
-- [`uinix`][uinix]
+- [`fp-ts`][fp-ts]
+- [`combinator-js`][combinator-js]
 
-<!-- badges -->
-[build-badge]: https://github.com/uinix-js/uinix-fp/workflows/main/badge.svg
+### License
+
+[MIT][license] © [Chris Zhou][author]
+
+<!-- project -->
+[author]: https://github.com/chrisrzhou
+[license]: https://github.com/uinix-js/uinix-fp/blob/main/license
 [build]: https://github.com/uinix-js/uinix-fp/actions
-[coverage-badge]: https://img.shields.io/codecov/c/github/uinix-js/uinix-fp.svg
+[build-badge]: https://github.com/uinix-js/uinix-fp/workflows/main/badge.svg
 [coverage]: https://codecov.io/github/uinix-js/uinix-fp
-[downloads-badge]: https://img.shields.io/npm/dm/uinix-fp.svg
+[coverage-badge]: https://img.shields.io/codecov/c/github/uinix-js/uinix-fp.svg
 [downloads]: https://www.npmjs.com/package/uinix-fp
-[bundle-size-badge]: https://img.shields.io/bundlephobia/minzip/uinix-fp.svg
+[downloads-badge]: https://img.shields.io/npm/dm/uinix-fp.svg
 [bundle-size]: https://bundlephobia.com/result?p=uinix-fp
+[bundle-size-badge]: https://img.shields.io/bundlephobia/minzip/uinix-fp.svg
+[packages]: https://github.com/uinix-js/uinix-fp/tree/main/packages/
+[uinix-js]: https://github.com/uinix-js/
 
 <!-- defs -->
 [combinator-js]: https://github.com/benji6/combinators-js
-[esm]: https://nodejs.org/api/esm.html
+[currying]: https://en.wikipedia.org/wiki/Currying
+[ESM-only]: https://gist.github.com/sindresorhus/a39789f98801d908bbc7ff3ecc99d99c
 [fp]: https://en.wikipedia.org/wiki/Functional_programming
-[lodash]: https://github.com/lodash/lodash
+[fp-ts]: https://github.com/gcanti/fp-ts
+[jsdoc]: https://github.com/jsdoc/jsdoc
 [pointfree]: https://en.wikipedia.org/wiki/Tacit_programming
 [sanctuary]: https://github.com/sanctuary-js/sanctuary
+[semver]: https://semver.org/
+[tree shaking]: https://webpack.js.org/guides/tree-shaking/
 [typescript]: https://github.com/microsoft/TypeScript
-[uinix]: https://github.com/uinix-js
+[unix philosophy]: https://en.wikipedia.org/wiki/Unix_philosophy

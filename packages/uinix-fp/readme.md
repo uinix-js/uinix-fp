@@ -18,6 +18,7 @@
   - [Version](#version)
   - [Contribute](#contribute)
   - [Related](#related)
+  - [License](#license)
 
 ## Install
 
@@ -33,14 +34,15 @@ You may also install specific [packages] individually.
 npm install uinix-fp-i
 npm install uinix-fp-map
 npm install uinix-fp-noop
+npm install uinix-fp-pipe
 ...
 ```
 
+> **Note:** `uinix-fp` is tree-shakeable and we recommend simply installing the main package if your build supports [tree shaking].
+
 ## Use
 
-The following example shows usage of some `uinix-fp` programs supporting [pointfree] and [currying] expressions.
-
-For more details on these methods, please refer to the [§ API](#api) section.
+The following example shows usage of some `uinix-fp` programs supporting [pointfree] and [currying] ways to express common JS data transformations in a pipeline.
 
 ```js
 import {
@@ -65,21 +67,26 @@ const data = [
   ...
 ];
 
-const transform1 = pipe([
+const pipeline = pipe([
   filterTruthy, // [{user: {firstName: 'Jesse'}}, {user: {firstName: 'Walter'}}, ...]
   map(props('user.firstName')), // ['Jesse', 'Walter', ...]
   map(greet), // ['Hi Jesse', 'Hi Walter', ...]
   map(exclaim), // ['Hi Jesse!', 'Hi Walter!', ...]
 ])(data);
+```
 
-// the following transofrm is equivalent to the previous transform
-const transform2 = pipe([
+`uinix-fp` is unopinionated and you you can express your code appropriately for your functional style and needs. The following pipeline is equivalent to the previous pipeline.
+
+```js
+const shoutFirstName = pipe([
+  props('user.firstName'),
+  greet,
+  exclaim,
+]);
+
+const pipeline = pipe([
   filterTruthy,
-  map(pipe([
-    props('user.firstName'),
-    greet,
-    exclaim,
-  ])),
+  map(shoutFirstName),
 ])(data)
 ```
 
@@ -100,16 +107,16 @@ This package has no default export and exports the following identifiers:
 - [`prop`](https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-prop)
 - [`props`](https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-props)
 
-APIs can also be explored via [JSDoc]-based [Typescript] typings accompanying the source code.
+APIs are explorable via [JSDoc]-based [Typescript] typings accompanying the source code.
 
 ## Project
 
 ### Goals
-`uinix-fp` is fundamentally just a simple JS library of utilities.  It aims to be JS-first and avoids introducing any domain-specific concepts.
+`uinix-fp` is fundamentally just a *simple JS library of utilities*.  It aims to be JS-first and avoid opinionated domain-specific APIs.
 
-Strict formalization of FP principles and [Typescript] types should not impede on the primary goal of providing a minimal set of utilities to help express common JS programs in functional form.  If you are looking for formal implementations and rigor, please explore other libraries such as [`sanctuary`][sanctuary] and [`fp-ts`][fp-ts].
+`uinix-fp` programs follow the [Unix philosophy], with each program maintaining simple and clear responsibilities, while remaining interoperable with other program and most importantly with core JS.
 
-`uinix-fp` also aims to adhere to the [Unix philosophy], providing utilities with clear individual responsibility, while staying interoperable with other programs, and most importantly with core JS APIs.
+Strict formalization of FP principles and typings should not impede on the primary goal of providing a minimal set of utilities to help express common JS programs in functional form.  If you are looking for a formal and rigorous set of FP utilities, please explore other libraries such as [`sanctuary`][sanctuary] and [`fp-ts`][fp-ts].
 
 ### Version
 `uinix-fp` adheres to [semver] starting at 1.0.0.
@@ -117,14 +124,15 @@ Strict formalization of FP principles and [Typescript] types should not impede o
 ### Contribute
 `uinix-fp` is a collection of smaller FP utilities managed under a monorepo of [packages].
 
-Install dependencies with `npm i` and run tests with `npm test`.
+Install dependencies with `npm i` and run tests with `npm test`.  You can also run other NPM scripts (e.g. `lint`) from the root of the monorepo.
 
 ### Related
-- [`combinator-js`][combinator-js]
-- [`fp-ts`][fp-ts]
+- [`uinix-js`][uinix-js]
 - [`sanctuary`][sanctuary]
+- [`fp-ts`][fp-ts]
+- [`combinator-js`][combinator-js]
 
-## License
+### License
 
 [MIT][license] © [Chris Zhou][author]
 
@@ -140,6 +148,7 @@ Install dependencies with `npm i` and run tests with `npm test`.
 [bundle-size]: https://bundlephobia.com/result?p=uinix-fp
 [bundle-size-badge]: https://img.shields.io/bundlephobia/minzip/uinix-fp.svg
 [packages]: https://github.com/uinix-js/uinix-fp/tree/main/packages/
+[uinix-js]: https://github.com/uinix-js/
 
 <!-- defs -->
 [combinator-js]: https://github.com/benji6/combinators-js
@@ -151,5 +160,6 @@ Install dependencies with `npm i` and run tests with `npm test`.
 [pointfree]: https://en.wikipedia.org/wiki/Tacit_programming
 [sanctuary]: https://github.com/sanctuary-js/sanctuary
 [semver]: https://semver.org/
+[tree shaking]: https://webpack.js.org/guides/tree-shaking/
 [typescript]: https://github.com/microsoft/TypeScript
 [unix philosophy]: https://en.wikipedia.org/wiki/Unix_philosophy
