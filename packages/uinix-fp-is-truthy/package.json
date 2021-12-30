@@ -1,12 +1,13 @@
 {
   "name": "uinix-fp-is-truthy",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "uinix fp utility to test JS-truthiness of values",
   "license": "MIT",
   "keywords": [
     "uinix",
     "fp",
     "utility",
+    "predicate",
     "truthy"
   ],
   "repository": "https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-is-truthy",
