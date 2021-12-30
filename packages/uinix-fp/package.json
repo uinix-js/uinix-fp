@@ -28,17 +28,17 @@
   "exports": "./index.js",
   "dependencies": {
     "uinix-fp-filter": "^1.0.0",
-    "uinix-fp-filter-entries": "^1.0.0",
-    "uinix-fp-i": "^1.0.0",
-    "uinix-fp-is-plain-object": "^1.0.0",
-    "uinix-fp-is-truthy": "^1.0.0",
-    "uinix-fp-k": "^1.0.0",
+    "uinix-fp-filter-entries": "^1.0.1",
+    "uinix-fp-i": "^1.0.1",
+    "uinix-fp-is-plain-object": "^1.0.1",
+    "uinix-fp-is-truthy": "^1.0.1",
+    "uinix-fp-k": "^1.0.1",
     "uinix-fp-map": "^1.0.0",
     "uinix-fp-map-entries": "^1.0.0",
-    "uinix-fp-merge": "^1.0.0",
+    "uinix-fp-merge": "^1.0.1",
     "uinix-fp-noop": "^1.0.0",
     "uinix-fp-pipe": "^1.0.0",
     "uinix-fp-prop": "^1.0.0",
-    "uinix-fp-props": "^1.0.1"
+    "uinix-fp-props": "^1.0.2"
   }
 }
