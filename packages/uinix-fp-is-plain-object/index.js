@@ -1,4 +1,4 @@
 /**
- * Re-export from https://github.com/sindresorhus/is-plain-obj
+ * Re-export from https://github.com/jonschlinkert/is-plain-object
  */
-export {default as isPlainObject} from 'is-plain-obj';
+export {isPlainObject} from 'is-plain-object';
