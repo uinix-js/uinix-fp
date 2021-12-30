@@ -8,6 +8,4 @@ export {filterEntries};
  * @returns {(xs: Record<string, X>) => Record<string, X>}
  */
 const filterEntries = (f) => (xs) =>
-  Object.fromEntries(
-    Object.entries(xs).filter((entry) => [entry[0], f(entry)]),
-  );
+  Object.fromEntries(Object.entries(xs).filter(f));
