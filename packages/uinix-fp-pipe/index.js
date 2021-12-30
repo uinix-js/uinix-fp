@@ -7,4 +7,5 @@ export {pipe};
  * @param {Function[]} fs array of functions
  * @returns {(x: X) => Y}
  */
+// @ts-ignore (near impossible to type pipe correctly)
 const pipe = (fs) => (x) => fs.reduce((acc, f) => f(acc), x);
