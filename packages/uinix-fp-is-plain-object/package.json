@@ -1,6 +1,6 @@
 {
   "name": "uinix-fp-is-plain-object",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "uinix fp utility to test if a value is a plain JS object",
   "license": "MIT",
   "keywords": [
@@ -29,6 +29,6 @@
   ],
   "exports": "./index.js",
   "dependencies": {
-    "is-plain-obj": "^4.0.0"
+    "is-plain-object": "^5.0.0"
   }
 }
