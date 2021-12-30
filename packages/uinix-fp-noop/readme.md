@@ -27,7 +27,7 @@ import {noop} from 'uinix-fp-noop';
 
 ## API
 
-This package exports the following identifiers: `k`.  There is no default export.
+This package exports the following identifiers: `noop`.  There is no default export.
 
 ### `noop()`
 
