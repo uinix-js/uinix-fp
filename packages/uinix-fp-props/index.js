@@ -8,8 +8,8 @@ export {props};
  * Returns undefined if the path is invalid.
  *
  * @template V
- * @param {string} [path] object property path
- * @returns {<X>(x: X) => V | undefined}
+ * @param {string} path object property path
+ * @returns {<X extends Record<string, any>>(x: X) => V}
  */
 const props = (path) => (x) => {
   if (path in x) {
