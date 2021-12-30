@@ -1,6 +1,6 @@
 {
   "name": "uinix-fp",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "FP utilities for authoring common JS programs in functional form",
   "license": "MIT",
   "keywords": [
