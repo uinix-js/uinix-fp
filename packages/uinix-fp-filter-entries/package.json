@@ -1,6 +1,6 @@
 {
   "name": "uinix-fp-filter-entries",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "uinix fp object filter entries utility",
   "license": "MIT",
   "keywords": [
@@ -8,7 +8,7 @@
     "fp",
     "utility",
     "object",
-    "map",
+    "filter",
     "entries"
   ],
   "repository": "https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-filter-entries",
