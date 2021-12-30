@@ -5,9 +5,9 @@ export {merge};
 /**
  * Deepmerge from https://github.com/TehShrike/deepmerge.
  *
- * @template X
- * @param {Partial<X>} [x]
- * @returns {<Y>(y?: Partial<Y>) => X & Y}
+ * @template X, Y
+ * @param {Partial<X>} x
+ * @returns {(y: Partial<Y>) => X & Y}
  */
 const merge = (x) => (y) => deepmerge(x, y, {arrayMerge});
 
