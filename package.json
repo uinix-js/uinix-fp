@@ -37,19 +37,17 @@
     "packages/uinix-fp-props"
   ],
   "devDependencies": {
-    "@types/tape": "^4.13.2",
     "c8": "^7.10.0",
     "rimraf": "^3.0.2",
-    "tape": "^5.4.0",
     "type-coverage": "^2.19.0",
-    "typescript": "^4.5.4",
+    "typescript": "^4.6.4",
     "xo": "^0.47.0"
   },
   "scripts": {
     "build": "npm run clean && tsc && type-coverage",
     "clean": "rimraf {packages,test}/**/*.d.ts",
     "lint": "xo --fix",
-    "test-coverage": "c8 --check-coverage --all --100 --reporter lcov node test/index.js",
+    "test-coverage": "c8 --check-coverage --all --100 --reporter lcov node --test test/index.js",
     "test": "npm run build && npm run lint && npm run test-coverage"
   },
   "prettier": {

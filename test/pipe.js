@@ -1,16 +1,14 @@
-import test from 'tape';
+import assert from 'node:assert';
+import test from 'node:test';
 
 import {pipe} from 'uinix-fp';
 
-test('pipe', (t) => {
-  // @ts-ignore
+test('pipe', () => {
   const step1 = (x) => x + 1;
-  // @ts-ignore
   const step2 = (x) => (y) => x * y;
-  // @ts-ignore
   const step3 = (x) => x.toString();
 
-  t.equal(
+  assert.strictEqual(
     pipe([
       // Piped steps
       step1,
@@ -19,6 +17,4 @@ test('pipe', (t) => {
     ])(42),
     (2 * (42 + 1)).toString(),
   );
-
-  t.end();
 });

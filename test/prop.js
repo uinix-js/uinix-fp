@@ -1,15 +1,14 @@
-import test from 'tape';
+import assert from 'node:assert';
+import test from 'node:test';
 
 import {prop} from 'uinix-fp';
 
-test('prop', (t) => {
-  t.equal(
-    prop('name')({name: 'John'}),
-    'John',
-    'returns value of specified object property',
-  );
+test('prop', async (t) => {
+  await t.test('returns value of specified object property', () => {
+    assert.strictEqual(prop('name')({name: 'John'}), 'John');
+  });
 
-  t.equal(prop('name')({}), undefined, 'returns undefined if prop not found');
-
-  t.end();
+  await t.test('returns undefined if prop not found', () => {
+    assert.strictEqual(prop('name')({}), undefined);
+  });
 });

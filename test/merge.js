@@ -1,8 +1,9 @@
-import test from 'tape';
+import assert from 'node:assert';
+import test from 'node:test';
 
 import {merge} from 'uinix-fp';
 
-test('merge', (t) => {
+test('merge', async (t) => {
   const x1 = {
     a: {
       b: {
@@ -42,23 +43,23 @@ test('merge', (t) => {
     },
   };
 
-  t.deepEqual(
-    merge(x1)(x2),
-    x2Clone,
-    'should perform deepmerge with array overwrites',
-  );
-
-  t.test('immutable', (t) => {
-    t.notEqual(x1, x1Clone, 'should not shallow equal (x1)');
-
-    t.notEqual(x2, x2Clone, 'should not shallow equal (x2)');
-
-    t.deepEqual(x1, x1Clone, 'should deep equal (x1)');
-
-    t.deepEqual(x2, x2Clone, 'should deep equal (x2)');
-
-    t.end();
+  await t.test('should perform deepmerge with array overwrites', () => {
+    assert.deepEqual(merge(x1)(x2), x2Clone);
   });
 
-  t.end();
+  await t.test('should not strict equal (x1)', () => {
+    assert.notStrictEqual(x1, x1Clone);
+  });
+
+  await t.test('should not strict equal (x2)', () => {
+    assert.notStrictEqual(x2, x2Clone);
+  });
+
+  await t.test('should deep equal (x1)', () => {
+    assert.deepEqual(x1, x1Clone);
+  });
+
+  await t.test('should deep equal (x2)', () => {
+    assert.deepEqual(x2, x2Clone);
+  });
 });

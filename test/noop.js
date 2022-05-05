@@ -1,9 +1,8 @@
-import test from 'tape';
+import assert from 'node:assert';
+import test from 'node:test';
 
 import {noop} from 'uinix-fp';
 
-test('noop', (t) => {
-  t.equal(noop('no', 'operation'), undefined, 'no operation');
-
-  t.end();
+test('noop', () => {
+  assert.strictEqual(noop('no', 'operation'), undefined, 'no operation');
 });
