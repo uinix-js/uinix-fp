@@ -7,7 +7,7 @@
     "uinix",
     "fp",
     "utility",
-    "i"
+    "pipe"
   ],
   "repository": "https://github.com/uinix-js/uinix-fp/tree/main/packages/uinix-fp-pipe",
   "bugs": "https://github.com/uinix-js/uinix-fp/issues",
