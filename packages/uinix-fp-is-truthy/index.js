@@ -7,4 +7,4 @@ export {isTruthy};
  * @param {X} x
  * @returns {boolean}
  */
-const isTruthy = (x) => Boolean(x);
+const isTruthy = Boolean;
