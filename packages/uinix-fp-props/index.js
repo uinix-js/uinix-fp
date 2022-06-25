@@ -1,7 +1,5 @@
 import {isPlainObject} from 'uinix-fp-is-plain-object';
 
-export {props};
-
 /**
  * Returns the value of an object's property path.
  *
@@ -9,14 +7,22 @@ export {props};
  *
  * @template V
  * @param {string} path object property path
+ * @param {object} [options] optional options
+ * @param {boolean} [options.isStrict] strict mode (throws if property path is invalid)
  * @returns {<X extends Record<string, any>>(x: X) => V}
  */
-const props = (path) => (x) => {
-  if (path in x) {
-    return x[path];
-  }
+export const props =
+  (path, options = {}) =>
+  (x) => {
+    if (path in x) {
+      return x[path];
+    }
 
-  return path
-    .split('.')
-    .reduce((acc, i) => (isPlainObject(acc) ? acc[i] : undefined), x);
-};
+    return path
+      .split('.')
+      .reduce(
+        (acc, subpath) =>
+          options.isStrict || isPlainObject(acc) ? acc[subpath] : undefined,
+        x,
+      );
+  };

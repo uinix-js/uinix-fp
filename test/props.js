@@ -38,11 +38,18 @@ test('props', async (t) => {
     assert.strictEqual(props('a.b')(x), x.a.b);
   });
 
+  await t.test('should return property value for exact keys', () => {
+    assert.strictEqual(props('1.2.a.b')(x), 5);
+  });
+
   await t.test('should return undefined if nested props not found', () => {
     assert.strictEqual(props('a.b.c.d.e.f')(x), undefined);
   });
 
-  await t.test('should return property value for exact keys', () => {
-    assert.strictEqual(props('1.2.a.b')(x), 5);
-  });
+  await t.test(
+    'should throw if nested props not found (options.isStrict === true)',
+    () => {
+      assert.throws(() => props('a.b.c.d.e.f', {isStrict: true})(x));
+    },
+  );
 });
