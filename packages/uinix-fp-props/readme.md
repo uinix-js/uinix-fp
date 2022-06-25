@@ -39,6 +39,7 @@ props('a.b.d')(x); // 'D'
 props('a')(x); // x.a
 props('a.b')(x); // 'AB' (direct property path takes precendence)
 props('x.y.z')(x); // undefined
+props('x.y.z', { isStrict: true })(x); // throws in strict mode
 
 const propsABC = props('a.b.c'); // curried
 propsABC(x); // 'C'
@@ -48,7 +49,7 @@ propsABC(x); // 'C'
 
 This package exports the following identifiers: `props`.  There is no default export.
 
-### `props(k, options)(x) => y`
+### `props(k, [options])(x) => y`
 
 ##### Parameters (curried)
 
@@ -57,6 +58,9 @@ An object property path.  Supports accessing nested object properties through th
 
 ###### `X` (`object`)
 The provided object.
+
+###### `options.isStrict` (boolean)
+Options to set strict behavior.  Throws an error instead of returning `undefined` if provided object property path is invalid.
 
 ##### Returns
 
