@@ -29,13 +29,13 @@ import {noop} from 'uinix-fp-noop';
 
 This package exports the following identifiers: `noop`.  There is no default export.
 
-### `noop()`
+### `noop() => void`
 
-###### Parameters
-- None
+##### Parameters
+None.
 
-###### Returns
-- `void` — Nothing
+##### Returns
+Nothing.
 
 ## License
 

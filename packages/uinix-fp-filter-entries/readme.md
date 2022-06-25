@@ -39,14 +39,20 @@ filterEntries(keyedIsEvenEntries)({a1: 2, b1: 3, a2: 5, b2: 6}); // {a1: 2}
 
 This package exports the following identifiers: `filterEntries`.  There is no default export.
 
-### `filterEntries(f)(object)`
+### `filterEntries(f)(xs) => xs`
 
-###### Parameters (Curried)
-- `f` (`(x: X) => boolean`): The filter predicate function.
-- `object` (`Record<string, X>`): An object with values of a single type.
+##### Parameters (curried)
 
-###### Returns
-- `Record<string, X>` — Partial object of filtered entries passing the predicate test.
+###### `f` (`(x: X) => boolean`)
+The filter predicate function.
+
+###### `xs` (`Record<string, X>`)
+An object with values of a single type.
+
+##### Returns
+
+###### `xs` (`Partial<Record<string, X>>`)
+Partial object of filtered entries passing the predicate test.
 
 ## License
 

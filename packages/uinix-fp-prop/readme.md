@@ -24,32 +24,37 @@ npm install uinix-fp-prop
 ```js
 import {prop} from 'uinix-fp-prop';
 
-const user = {
-  firstName: 'Jesse',
-  lastName: 'Pinkman',
+const x = {
+  a: 'A',
+  b: 'B',
 };
 
-prop('firstName')(user); // 'Jesse'
-prop('lastName')(user); // 'Pinkman'
-prop('age')(user); // undefined
+prop('a')(x); // 'A'
+prop('b')(x); // 'B'
+prop('x')(x); // undefined
 
-const propFirstName = prop('firstName'); // curried
-
-[user, user, user].map(propFirstName); ['Jesse', 'Jesse', 'Jesse'];
+const propA = prop('a'); // curried
+propA(x) // 'A'
 ```
 
 ## API
 
 This package exports the following identifiers: `prop`.  There is no default export.
 
-### `prop(property)(object)`
+### `prop(k)(x) => v`
 
-###### Parameters (Curried)
-- `property` (`string`) — An object property.
-- `object` (`object`) — The provided object.
+###### Parameters (curried)
 
-###### Returns
-- `any` — The object value for the specified property.
+###### `k` (`string`)
+An object property.
+
+###### `x` (`object`)
+The provided object.
+
+##### Returns
+
+###### `v` (`any`)
+The object value for the specified property.
 
 ## License
 

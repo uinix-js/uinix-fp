@@ -59,7 +59,7 @@ const exclaim = x => x + '!';
 
 const filterTruthy = filter(isTruthy); // curried
 
-const data = [
+const users = [
   null,
   {user: {firstName: 'Jesse'}},
   null,
@@ -72,7 +72,7 @@ const pipeline = pipe([
   map(props('user.firstName')), // ['Jesse', 'Walter', ...]
   map(greet), // ['Hi Jesse', 'Hi Walter', ...]
   map(exclaim), // ['Hi Jesse!', 'Hi Walter!', ...]
-])(data);
+])(users);
 ```
 
 `uinix-fp` is unopinionated and you you can express your code appropriately for your functional style and needs. The following pipeline is equivalent to the previous pipeline.
@@ -87,7 +87,7 @@ const shoutFirstName = pipe([
 const pipeline = pipe([
   filterTruthy,
   map(shoutFirstName),
-])(data)
+])(users)
 ```
 
 ## API
@@ -122,7 +122,10 @@ Strict formalization of FP principles and typings should not impede on the prima
 `uinix-fp` adheres to [semver] starting at 1.0.0.
 
 ### Contribute
+
 `uinix-fp` is a collection of smaller FP utilities managed under a monorepo of [packages].
+
+Node 18+ is required for development.
 
 Install dependencies with `npm i` and run tests with `npm test`.  You can also run other NPM scripts (e.g. `lint`) from the root of the monorepo.
 

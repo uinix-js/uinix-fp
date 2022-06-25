@@ -1,5 +1,3 @@
-export {filterEntries};
-
 /**
  * Filters an object using the provided predicate over its entries.
  *
@@ -7,5 +5,5 @@ export {filterEntries};
  * @param {(entry: [string, X]) => boolean} f predicate
  * @returns {(xs: Record<string, X>) => Record<string, X>}
  */
-const filterEntries = (f) => (xs) =>
+export const filterEntries = (f) => (xs) =>
   Object.fromEntries(Object.entries(xs).filter(f));

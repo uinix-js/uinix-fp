@@ -1,5 +1,3 @@
-export {filter};
-
 /**
  * Filters an array using the provided predicate.
  *
@@ -7,4 +5,4 @@ export {filter};
  * @param {(x: X) => boolean} f predicate
  * @returns {(xs: X[]) => X[]}
  */
-const filter = (f) => (xs) => xs.filter(f);
+export const filter = (f) => (xs) => xs.filter(f);

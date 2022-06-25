@@ -39,14 +39,20 @@ mapEntries(keyedSquareEntries)({a1: 2, b1: 3, a2: 4, b2: 5}); // {a1: 4, b1: 3, 
 
 This package exports the following identifiers: `mapEntries`.  There is no default export.
 
-### `mapEntries(f)(object)`
+### `mapEntries(f)(xs) => ys`
 
-###### Parameters (Curried)
-- `f` (`(x: X) => Y`): The mapping function
-- `object` (`Record<string, X>`): An object with values of a single type.
+##### Parameters (curried)
 
-###### Returns
-- `Record<string, Y>` — An object with mapped values of a single type.
+###### `f` (`(x: X) => Y`)
+The mapping function.
+
+###### `xs` (`Record<string, X>`)
+An object with values of a single type.
+
+##### Returns
+
+###### `ys` (`Record<string, Y>`)
+An object with mapped values of a single type.
 
 ## License
 

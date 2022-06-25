@@ -36,12 +36,18 @@ This package exports the following identifiers: `filter`.  There is no default e
 
 ### `filter(f)(xs)`
 
-###### Parameters (Curried)
-- `f` (`(x: X) => boolean`): The predicate function
-- `xs` (`X[]`): Any value
+##### Parameters (curried)
 
-###### Returns
-- `X[]` — Array of filtered values passing the predicate test.
+###### `f` (`(x: X) => boolean`)
+The predicate function.
+
+###### `xs` (`X[]`)
+An array of values.
+
+##### Returns
+
+###### `xs` (`X[]`)
+Array of filtered values passing the predicate test.
 
 ## License
 

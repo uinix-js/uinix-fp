@@ -33,14 +33,20 @@ merge(x1)(x2); // {a: {b: {d: 'e'}}, c: [8, 9, 10], e: {f:'g'}}
 
 This package exports the following identifiers: `merge`.  There is no default export.
 
-### `merge(x1)(x2)`
+### `merge(x1)(x2) => y`
 
-###### Parameters (Curried)
-- `x1` (`X1`) — First object
-- `x2` (`X2`) — Second object
+##### Parameters (curried)
 
-###### Returns
-- `X1 & X2` — Returns a deeply-merged object.  Does not mutate its inputs.
+###### `x1` (`X1`)
+First object.
+
+###### `x2` (`X2`)
+Second object.
+
+##### Returns
+
+###### `y` (`X1 & X2`)
+Returns a deeply-merged object.  Does not mutate its inputs.
 
 ## License
 

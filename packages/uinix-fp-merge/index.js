@@ -1,7 +1,5 @@
 import deepmerge from 'deepmerge';
 
-export {merge};
-
 /**
  * Deepmerge from https://github.com/TehShrike/deepmerge.
  *
@@ -9,7 +7,7 @@ export {merge};
  * @param {Partial<X>} x
  * @returns {(y: Partial<Y>) => X & Y}
  */
-const merge = (x) => (y) => deepmerge(x, y, {arrayMerge});
+export const merge = (x) => (y) => deepmerge(x, y, {arrayMerge});
 
 /**
  * Always return the second array when merging arrays.

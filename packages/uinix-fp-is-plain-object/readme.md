@@ -42,13 +42,17 @@ isPlainObject(new MyClass()); // false
 
 This package exports the following identifiers: `isPlainObject`.  There is no default export.
 
-### `isPlainObject`
+### `isPlainObject(x) => b`
 
-###### Parameters
-- `x` (`X`) — Any value
+##### Parameters
 
-###### Returns
-- `boolean` — Boolean value if `x` is a plain JS object.
+###### `x` (`X`)
+Any value.
+
+##### Returns
+
+###### `b` (`boolean`)
+Boolean value if `x` is a plain JS object.
 
 ## License
 

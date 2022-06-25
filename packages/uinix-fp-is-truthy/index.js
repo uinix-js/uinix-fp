@@ -1,5 +1,3 @@
-export {isTruthy};
-
 /**
  * Tests if a value is JS-truthy.
  *
@@ -7,4 +5,4 @@ export {isTruthy};
  * @param {X} x
  * @returns {boolean}
  */
-const isTruthy = Boolean;
+export const isTruthy = Boolean;

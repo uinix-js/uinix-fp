@@ -33,13 +33,17 @@ i(42); // 42
 
 This package exports the following identifiers: `i`.  There is no default export.
 
-### `i(x)`
+### `i(x) => x`
 
-###### Parameters
-- `x` (`X`) — Any value
+##### Parameters
 
-###### Returns
-- `X` — Just `x`
+###### `x` (`X`)
+Any value.
+
+##### Returns
+
+###### `x` (`X`)
+Just `x`.
 
 ## License
 

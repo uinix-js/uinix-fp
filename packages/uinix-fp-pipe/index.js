@@ -1,5 +1,3 @@
-export {pipe};
-
 /**
  * Applies an array of functions sequentially on its output.
  *
@@ -8,4 +6,4 @@ export {pipe};
  * @returns {(x: X) => Y}
  */
 // @ts-ignore (near impossible to type pipe correctly)
-const pipe = (fs) => (x) => fs.reduce((acc, f) => f(acc), x);
+export const pipe = (fs) => (x) => fs.reduce((acc, f) => f(acc), x);

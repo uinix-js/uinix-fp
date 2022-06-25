@@ -29,22 +29,26 @@ k(42)(9000); // 42
 const alwaysTrue = k(true);
 
 alwaysTrue(false); // true
-[1, 2, 3].map(alwaysTrue); // [true, true, true];
-
 ```
 
 ## API
 
 This package exports the following identifiers: `k`.  There is no default export.
 
-### `k(x)(y)`
+### `k(x)(y) => x`
 
-###### Parameters (Curried)
-- `x` (`X`) — Provided value
-- `y` (`Y`) — Second provided value (unused)
+###### Parameters (curried)
 
-###### Returns
-- `X` — Always returns `x`
+###### `x` (`X`)
+Provided value.
+
+###### `y` (`Y`)
+Second provided value (unused).
+
+##### Returns
+
+###### `X`
+Always returns `x`.
 
 ## License
 

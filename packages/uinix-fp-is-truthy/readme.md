@@ -41,13 +41,17 @@ isTruthy(0); // false
 
 This package exports the following identifiers: `isTruthy`.  There is no default export.
 
-### `isTruthy(x)`
+### `isTruthy(x) => b`
 
-###### Parameters
-- `x` (`X`) — Any value
+##### Parameters
 
-###### Returns
-- `boolean` — Boolean value if `x` is JS-truthy.
+###### `x` (`X`)
+Any value.
+
+##### Returns
+
+###### `b` (`boolean`)
+Boolean value if `x` is JS-truthy.
 
 ## License
 

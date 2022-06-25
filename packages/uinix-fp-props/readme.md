@@ -24,38 +24,44 @@ npm install uinix-fp-props
 ```js
 import {prop} from 'uinix-fp-props';
 
-const show = {
-  characters: {
-    supporting: {
-      firstName: 'Jesse',
-      lastName: 'Pinkman',
+const x = {
+  a: {
+    b: {
+      c: 'C',
+      d: 'D',
     }
   },
-  'title.name': 'Breaking Bad',
+  'a.b': 'AB',
 };
 
-props('characters.supporting.firstName')(show); // 'Jesse'
-props('characters.supporting.lastName')(show); // 'Pinkman'
-props('title.name')(show); // 'Breaking Bad'
-props('invalid.path')(show); // undefined
+props('a.b.c')(x); // 'C'
+props('a.b.d')(x); // 'D'
+props('a')(x); // x.a
+props('a.b')(x); // 'AB' (direct property path takes precendence)
+props('x.y.z')(x); // undefined
 
-const propsSupportingFirstName = props('characters.supporting.firstName'); // curried
-
-[show, show, show].map(propsSupportingFirstName); ['Jesse', 'Jesse', 'Jesse'];
+const propsABC = props('a.b.c'); // curried
+propsABC(x); // 'C'
 ```
 
 ## API
 
 This package exports the following identifiers: `props`.  There is no default export.
 
-### `props(propertyPath)(object)`
+### `props(k, options)(x) => y`
 
-###### Parameters (Curried)
-- `propertyPath` (`string`) — An object property path.  Supports accessing nested object properties through "dot" notation.
-- `object` (`object`) — The provided object.
+##### Parameters (curried)
 
-###### Returns
-- `any` — The object value for the specified property.
+###### `k` (`string`)
+An object property path.  Supports accessing nested object properties through the convenient "dot" notation.
+
+###### `X` (`object`)
+The provided object.
+
+##### Returns
+
+###### `v` (`any`)
+The object value for the specified property.
 
 ## License
 

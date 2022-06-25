@@ -34,14 +34,20 @@ mapSquare([1, 2, 3]); // [1, 4, 9]
 
 This package exports the following identifiers: `map`.  There is no default export.
 
-### `map(f)(xs)`
+### `map(f)(xs) => ys`
 
-###### Parameters (Curried)
-- `f` (`(x: X) => Y`): The mapping function
-- `xs` (`X[]`): Any value
+##### Parameters (curried)
 
-###### Returns
-- `Y[]` — Array of values returned by the mapping function
+###### `f` (`(x: X) => Y`)
+The mapping function.
+
+###### `xs` (`X[]`)
+Array of values.
+
+##### Returns
+
+###### `ys` (`Y[]`)
+Array of values returned by the mapping function.
 
 ## License
 

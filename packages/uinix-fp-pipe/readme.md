@@ -41,14 +41,20 @@ shout('Jesse'); // 'HELLO JESSE!'
 
 This package exports the following identifiers: `pipe`.  There is no default export.
 
-### `pipe(fs)(x)`
+### `pipe(fs)(x) => y`
 
-###### Parameters (Curried)
-- `fs` (`Function[]`) — An array of functions.
-- `x` (`X`) — The input.
+##### Parameters (curried)
 
-###### Returns
-- `Y` — Output of transforming `X` through the series of functions.
+###### `fs` (`Function[]`)
+An array of functions.
+
+###### `x` (`X`)
+The input.
+
+##### Returns
+
+###### `y` (`Y`)
+Output of transforming `X` through the series of functions.
 
 ## License
 

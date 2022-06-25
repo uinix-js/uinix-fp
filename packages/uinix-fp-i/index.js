@@ -1,5 +1,3 @@
-export {i};
-
 /**
  * The I combinator (identity function).
  *
@@ -7,4 +5,4 @@ export {i};
  * @param {X} x
  * @returns {X}
  */
-const i = (x) => x;
+export const i = (x) => x;
