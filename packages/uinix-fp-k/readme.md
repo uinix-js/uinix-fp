@@ -47,7 +47,7 @@ Second provided value (unused).
 
 ##### Returns
 
-###### `X`
+###### `X` (`X`)
 Always returns `x`.
 
 ## License

@@ -49,18 +49,18 @@ propsABC(x); // 'C'
 
 This package exports the following identifiers: `props`.  There is no default export.
 
-### `props(k, [options])(x) => y`
+### `props(k, options?)(x) => y`
 
 ##### Parameters (curried)
 
 ###### `k` (`string`)
 An object property path.  Supports accessing nested object properties through the convenient "dot" notation.
 
+###### `options.isStrict` (`boolean`, optional)
+Options to set strict behavior.  Throws an error instead of returning `undefined` if provided object property path is invalid.
+
 ###### `X` (`object`)
 The provided object.
-
-###### `options.isStrict` (boolean)
-Options to set strict behavior.  Throws an error instead of returning `undefined` if provided object property path is invalid.
 
 ##### Returns
 
