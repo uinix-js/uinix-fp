@@ -1,31 +1,47 @@
-import assert from 'node:assert';
-import test from 'node:test';
+import test from 'tape';
 
 import {isPlainObject} from 'uinix-fp';
 
 // Based on https://github.com/sindresorhus/is-plain-obj/blob/main/test.js
-test('isPlainObject', () => {
-  assert.strictEqual(isPlainObject({}), true);
-  assert.strictEqual(isPlainObject({foo: true}), true);
-  assert.strictEqual(isPlainObject({valueOf: 0}), true);
-  assert.strictEqual(isPlainObject(Object.create(null)), true);
-  assert.strictEqual(isPlainObject(new Object()), true); // eslint-disable-line no-new-object
-  assert.strictEqual(isPlainObject(['foo', 'bar']), false);
-  assert.strictEqual(isPlainObject(Math), false);
-  assert.strictEqual(isPlainObject(Error), false);
-  assert.strictEqual(
+test('isPlainObject', (t) => {
+  t.equal(isPlainObject({}), true);
+
+  t.equal(isPlainObject({foo: true}), true);
+
+  t.equal(isPlainObject({valueOf: 0}), true);
+
+  t.equal(isPlainObject(Object.create(null)), true);
+
+  t.equal(isPlainObject(new Object()), true); // eslint-disable-line no-new-object
+
+  t.equal(isPlainObject(['foo', 'bar']), false);
+
+  t.equal(isPlainObject(Math), false);
+
+  t.equal(isPlainObject(Error), false);
+
+  t.equal(
     isPlainObject(() => {}),
     false,
   );
-  assert.strictEqual(isPlainObject(/./), false);
-  assert.strictEqual(isPlainObject(null), false);
-  assert.strictEqual(isPlainObject(undefined), false);
-  assert.strictEqual(isPlainObject(Number.NaN), false);
-  assert.strictEqual(isPlainObject(''), false);
-  assert.strictEqual(isPlainObject(0), false);
-  assert.strictEqual(isPlainObject(false), false);
+
+  t.equal(isPlainObject(/./), false);
+
+  t.equal(isPlainObject(null), false);
+
+  t.equal(isPlainObject(undefined), false);
+
+  t.equal(isPlainObject(Number.NaN), false);
+
+  t.equal(isPlainObject(''), false);
+
+  t.equal(isPlainObject(0), false);
+
+  t.equal(isPlainObject(false), false);
 
   (function () {
-    assert.strictEqual(isPlainObject(arguments), false);
+    t.equal(isPlainObject(arguments), false);
   })();
+
+  t.end();
 });

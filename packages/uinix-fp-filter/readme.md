@@ -5,7 +5,7 @@
 [![Downloads][downloads-badge]][downloads]
 [![Size][bundle-size-badge]][bundle-size]
 
-[`uinix-fp`][uinix-fp] array filter utility.
+[uinix-fp] array filter utility.
 
 ---
 

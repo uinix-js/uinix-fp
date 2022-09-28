@@ -5,7 +5,7 @@
 [![Downloads][downloads-badge]][downloads]
 [![Size][bundle-size-badge]][bundle-size]
 
-[`uinix-fp`][uinix-fp] object props utility.
+[uinix-fp] object props utility.
 
 ---
 

@@ -5,7 +5,7 @@
 [![Downloads][downloads-badge]][downloads]
 [![Size][bundle-size-badge]][bundle-size]
 
-[`uinix-fp`][uinix-fp] utility to test if a value is a plain JS object.
+[uinix-fp] utility to test if a value is a plain JS object.
 
 ---
 

@@ -1,9 +1,8 @@
-import assert from 'node:assert';
-import test from 'node:test';
+import test from 'tape';
 
 import {merge} from 'uinix-fp';
 
-test('merge', async (t) => {
+test('merge', (t) => {
   const x1 = {
     a: {
       b: {
@@ -43,23 +42,19 @@ test('merge', async (t) => {
     },
   };
 
-  await t.test('should perform deepmerge with array overwrites', () => {
-    assert.deepEqual(merge(x1)(x2), x2Clone);
-  });
+  t.deepEqual(
+    merge(x1)(x2),
+    x2Clone,
+    'should perform deepmerge with array overwrites',
+  );
 
-  await t.test('should not strict equal (x1)', () => {
-    assert.notStrictEqual(x1, x1Clone);
-  });
+  t.notEqual(x1, x1Clone, 'should not strict equal (x1)');
 
-  await t.test('should not strict equal (x2)', () => {
-    assert.notStrictEqual(x2, x2Clone);
-  });
+  t.notEqual(x2, x2Clone, 'should not strict equal (x2)');
 
-  await t.test('should deep equal (x1)', () => {
-    assert.deepEqual(x1, x1Clone);
-  });
+  t.deepEqual(x1, x1Clone, 'should deep equal (x1)');
 
-  await t.test('should deep equal (x2)', () => {
-    assert.deepEqual(x2, x2Clone);
-  });
+  t.deepEqual(x2, x2Clone, 'should deep equal (x2)');
+
+  t.end();
 });

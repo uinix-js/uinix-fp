@@ -1,18 +1,14 @@
-import assert from 'node:assert';
-import test from 'node:test';
+import test from 'tape';
 
 import {k} from 'uinix-fp';
 
-test('k', async (t) => {
-  await t.test('should equal first value', () => {
-    assert.strictEqual(k(true)(false), true);
-    assert.strictEqual(k(false)(true), false);
-    assert.strictEqual(k(42)(9000), 42);
-  });
+test('k', (t) => {
+  t.equal(k(42)(9000), 42, 'should equal first value');
 
-  await t.test('should referentially equal first value', () => {
-    const x = {a: {b: {c: 42}}};
-    const y = 42;
-    assert.strictEqual(k(x)(y), x);
-  });
+  const x = {a: {b: {c: 42}}};
+  const y = 42;
+
+  t.equal(k(x)(y), x, 'should referentially equal first value');
+
+  t.end();
 });

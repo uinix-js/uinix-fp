@@ -5,7 +5,7 @@
 [![Downloads][downloads-badge]][downloads]
 [![Size][bundle-size-badge]][bundle-size]
 
-[`uinix-fp`][uinix-fp] identity utility.
+[uinix-fp] identity utility.
 
 ---
 

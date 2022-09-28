@@ -5,7 +5,7 @@
 [![Downloads][downloads-badge]][downloads]
 [![Size][bundle-size-badge]][bundle-size]
 
-[`uinix-fp`][uinix-fp] utility to test JS-truthiness of values.
+[uinix-fp] utility to test JS-truthiness of values.
 
 ---
 

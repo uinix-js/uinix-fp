@@ -1,19 +1,31 @@
-import assert from 'node:assert';
-import test from 'node:test';
+import test from 'tape';
 
 import {isTruthy} from 'uinix-fp';
 
-test('isTruthy', () => {
-  assert.strictEqual(isTruthy(false), false);
-  assert.strictEqual(isTruthy(0), false);
-  assert.strictEqual(isTruthy(-0), false);
-  assert.strictEqual(isTruthy(''), false);
-  assert.strictEqual(isTruthy(null), false);
-  assert.strictEqual(isTruthy(undefined), false);
-  assert.strictEqual(isTruthy(Number.NaN), false);
-  assert.strictEqual(isTruthy(true), true);
-  assert.strictEqual(isTruthy(1), true);
-  assert.strictEqual(isTruthy(' '), true);
-  assert.strictEqual(isTruthy({}), true);
-  assert.strictEqual(isTruthy([]), true);
+test('isTruthy', (t) => {
+  t.equal(isTruthy(false), false);
+
+  t.equal(isTruthy(0), false);
+
+  t.equal(isTruthy(-0), false);
+
+  t.equal(isTruthy(''), false);
+
+  t.equal(isTruthy(null), false);
+
+  t.equal(isTruthy(undefined), false);
+
+  t.equal(isTruthy(Number.NaN), false);
+
+  t.equal(isTruthy(true), true);
+
+  t.equal(isTruthy(1), true);
+
+  t.equal(isTruthy(' '), true);
+
+  t.equal(isTruthy({}), true);
+
+  t.equal(isTruthy([]), true);
+
+  t.end();
 });
